@@ -1,0 +1,9 @@
+bin_PROGRAMS = mqttest
+mqttest_SOURCES = user.pb.cc user.grpc.pb.cc msg.pb.cc mqttest.cc
+include_HEADERS=user.pb.h user.grpc.pb.h
+mqttest_CPPFLAGS =
+mqttest_CXXFLAGS = -pthread -I${abs_top_srcdir}/lib
+mqttest_LDFLAGS = -pthread -L${abs_top_builddir}/lib
+mqttest_LDADD = -lgw -lgrpc -lgrpc++ -lprotobuf -lmosquitto -lpthread
+
+include ${abs_top_srcdir}/../proto/rules.mk
