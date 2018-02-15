@@ -400,7 +400,7 @@ int mosquitto_auth_connect_check(void *user_data, const struct mosquitto *client
 	// username: uid, password: session token
 	long uid = get_uid(username);
 	if (uid == -1) {
-	  if(!strcmp(username, "codein") && !strcmp(password, "codein.tv")) {
+	  if(!strcmp(username, "sea") && !strcmp(password, "ffox.top")) {
 	  	return MOSQ_ERR_SUCCESS;
 	  }
 	  if(!strncmp(username, "codein_os_", 10)) {
@@ -417,13 +417,13 @@ int mosquitto_auth_connect_check(void *user_data, const struct mosquitto *client
 	}
 
 	if(uid >= ANON_UID_BASE && !strcmp(password, "codein.tv")) {
-    on_client_online(uid, password, clientid, sd);
+		on_client_online(uid, password, clientid, sd);
 		return MOSQ_ERR_SUCCESS;
 	}
 
 	if (check_token(uid, password) == 0) {
-    update_client_status(uid, password, clientid, sd);
-    on_client_online(uid, password, clientid, sd);
+		update_client_status(uid, password, clientid, sd);
+		on_client_online(uid, password, clientid, sd);
 		return MOSQ_ERR_SUCCESS;
 	}
 
@@ -432,8 +432,8 @@ int mosquitto_auth_connect_check(void *user_data, const struct mosquitto *client
 
 int mosquitto_auth_unpwd_check(void *user_data, const struct mosquitto *client, const char *username, const char *password) {
 	if (username == NULL || password == NULL) {
-    fprintf(stderr, "[%s] invalid connection with username %s password %s\n",
-      __func__, username == NULL ? "null" : username, password == NULL ? "null" : password);
+		fprintf(stderr, "[%s] invalid connection with username %s password %s\n",
+				__func__, username == NULL ? "null" : username, password == NULL ? "null" : password);
 		return MOSQ_ERR_AUTH;
 	}
 
