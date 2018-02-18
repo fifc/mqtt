@@ -8,7 +8,7 @@ lib_LTLIBRARIES = libmsq_auth.la
 libmsq_auth_la_SOURCES = kafka.pb.cc msq_auth.cc sea.pb.cc sea.grpc.pb.cc
 include_HEADERS = client_shared.h
 libmsq_auth_la_CXXFLAGS = -pthread -I${abs_top_srcdir}/../sea/lib
-libmsq_auth_la_LDFLAGS = -pthread -L${abs_top_builddir}/../sea/lib
+libmsq_auth_la_LDFLAGS = -pthread -L${abs_top_srcdir}/../sea/lib
 
 libmsq_auth_la_LIBADD = -lrdkafka -lprotobuf -lgrpc -lgrpc++ -ljemalloc
 
