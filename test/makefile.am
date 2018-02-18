@@ -1,9 +1,9 @@
 bin_PROGRAMS = mqttest
-mqttest_SOURCES = user.pb.cc user.grpc.pb.cc msg.pb.cc mqttest.cc
-include_HEADERS=user.pb.h user.grpc.pb.h
+mqttest_SOURCES = common.pb.cc user.pb.cc user.grpc.pb.cc msg.pb.cc client_shared.cc mqttest.cc
+include_HEADERS = common.pb.h user.pb.h user.grpc.pb.h
 mqttest_CPPFLAGS =
-mqttest_CXXFLAGS = -pthread -I${abs_top_srcdir}/lib
-mqttest_LDFLAGS = -pthread -L${abs_top_builddir}/lib
+mqttest_CXXFLAGS = -pthread -I${abs_top_srcdir}/../sea/lib
+mqttest_LDFLAGS = -pthread -L${abs_top_builddir}/../sea/lib
 mqttest_LDADD = -lgw -lgrpc -lgrpc++ -lprotobuf -lmosquitto -lpthread
 
 include ${abs_top_srcdir}/../proto/rules.mk

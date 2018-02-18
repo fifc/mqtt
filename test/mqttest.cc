@@ -252,7 +252,7 @@ void send_live_msg_game_state(struct mosquitto *mosq, const char *topic) {
   for (int i = 0; i < 4; ++i, ++id) {
     msg_proto::GameLiveStateInfo msg;
     msg.set_state(msg_proto::game_state_idle);
-    msg.set_time_ms(time(NULL)*1000);
+    msg.set_time(time(NULL)*1000);
     auto clinfo = msg.mutable_client_info();
     clinfo->set_uid(20170009);
     clinfo->set_device_id("mqtt_device_123");
