@@ -255,7 +255,7 @@ void send_live_msg_game_state(struct mosquitto *mosq, const char *topic) {
     msg.set_time(time(NULL)*1000);
     auto clinfo = msg.mutable_client_info();
     clinfo->set_uid(20170009);
-    clinfo->set_device_id("mqtt_device_123");
+    clinfo->set_dev_key("mqtt_device_123");
     auto gps = clinfo->mutable_gps();
     gps->set_latitude(301234667);
     gps->set_longitude(1181234667);
@@ -309,7 +309,7 @@ void send_msg(struct mosquitto *mosq, const char *topic) {
     SearchNearbyUsers msg;
     auto clinfo = msg.mutable_client_info();
     clinfo->set_uid(20170009);
-    clinfo->set_device_id("mqtt_device_123");
+    clinfo->set_dev_key("mqtt_device_123");
     auto gps = clinfo->mutable_gps();
     gps->set_latitude(301234667);
     gps->set_longitude(1181234667);
